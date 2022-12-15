@@ -39,7 +39,7 @@
         ZMK_MACRO(eszett,
         wait-ms = <0>;
         tap-ms = <0>;
-        bindings = <&kp RA(S))>;
+        bindings = <&kp RA(S)>;
         )
         ZMK_MACRO(eurosign,
         wait-ms = <0>;
