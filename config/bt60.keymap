@@ -6,122 +6,56 @@
 
 / {
 	macros {
-        ae_lowercase: ae_lowercase {
-            label = "ZM_ae_lowercase";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-	    wait-ms = <20>;
-            bindings
-                = <&macro_press &kp LSHFT>
-                , <&macro_tap &kp APOS>
-                , <&macro_release &kp LSHFT>
-		, <&macro_tap &kp A>
-                ;
-        };
-		ae_uppercase: ae_uppercase {
-            label = "ZM_ae_uppercase";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-	    wait-ms = <20>;
-            bindings
-                = <&macro_press &kp LSHFT>
-                , <&macro_tap &kp APOS>
-				, <&macro_tap &kp A>
-				, <&macro_release &kp LSHFT>
-                ;
-        };
-		oe_lowercase: oe_lowercase {
-            label = "ZM_oe_lowercase";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-	    wait-ms = <20>;
-            bindings
-                = <&macro_press &kp LSHFT>
-                , <&macro_tap &kp APOS>
-                , <&macro_release &kp LSHFT>
-				, <&macro_tap &kp O>
-                ;
-        };
-		oe_uppercase: oe_uppercase {
-            label = "ZM_oe_uppercase";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-	    wait-ms = <20>;
-            bindings
-                = <&macro_press &kp LSHFT>
-                , <&macro_tap &kp APOS>
-				, <&macro_tap &kp O>
-				, <&macro_release &kp LSHFT>
-                ;
-        };
-		ue_lowercase: oe_lowercase {
-            label = "ZM_oe_lowercase";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-	    wait-ms = <20>;
-            bindings
-                = <&macro_press &kp LSHFT>
-                , <&macro_tap &kp APOS>
-                , <&macro_release &kp LSHFT>
-				, <&macro_tap &kp U>
-                ;
-        };
-		ue_uppercase: oe_uppercase {
-            label = "ZM_oe_uppercase";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-	    wait-ms = <20>;
-            bindings
-                = <&macro_press &kp LSHFT>
-                , <&macro_tap &kp APOS>
-				, <&macro_tap &kp U>
-				, <&macro_release &kp LSHFT>
-                ;
-        };
-		eszett: eszett {
-            label = "ZM_eszett";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-	    wait-ms = <20>;
-            bindings
-                = <&macro_press &kp RALT>
-				, <&macro_tap &kp S>
-				, <&macro_release &kp RALT>
-                ;
-        };
-		eurosign: eurosign {
-            label = "ZM_eurosign";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-	    wait-ms = <20>;
-            bindings
-                = <&macro_press &kp RALT>
-				, <&macro_tap &kp NUMBER_5>
-				, <&macro_release &kp RALT>
-                ;
-        };
-		apostrophe: apostrophe {
-            label = "ZM_apostrophe";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-	    wait-ms = <20>;
-            bindings
-                = <&macro_tap &kp APOS>
-				, <&macro_tap &kp SPACE>
-                ;
-        };
-		quotations: quotations {
-            label = "ZM_quotations";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-	    wait-ms = <20>;
-            bindings
-                = <&macro_press &kp LSHFT>
-                , <&macro_tap &kp APOS>
-				, <&macro_release &kp LSHFT>
-				, <&macro_tap &kp SPACE>
-                ;
-        };
+        ZMK_MACRO(ae_lowercase,
+        wait-ms = <0>;
+        tap-ms = <0>;
+        bindings = <&kp LS(APOS) &kp A>;
+        )
+        ZMK_MACRO(ae_uppercase,
+        wait-ms = <0>;
+        tap-ms = <0>;
+        bindings = <&kp LS(APOS) &kp LS(A)>;
+        )
+        ZMK_MACRO(oe_lowercase,
+        wait-ms = <0>;
+        tap-ms = <0>;
+        bindings = <&kp LS(APOS) &kp O>;
+        )
+        ZMK_MACRO(oe_uppercase,
+        wait-ms = <0>;
+        tap-ms = <0>;
+        bindings = <&kp LS(APOS) &kp LS(O)>;
+        )
+        ZMK_MACRO(ue_lowercase,
+        wait-ms = <0>;
+        tap-ms = <0>;
+        bindings = <&kp LS(APOS) &kp U>;
+        )
+        ZMK_MACRO(ue_uppercase,
+        wait-ms = <0>;
+        tap-ms = <0>;
+        bindings = <&kp LS(APOS) &kp LS(U)>;
+        )
+        ZMK_MACRO(eszett,
+        wait-ms = <0>;
+        tap-ms = <0>;
+        bindings = <&kp RA(S))>;
+        )
+        ZMK_MACRO(eurosign,
+        wait-ms = <0>;
+        tap-ms = <0>;
+        bindings = <&kp RA(NUMBER_5)>;
+        )
+        ZMK_MACRO(apostrophe,
+        wait-ms = <0>;
+        tap-ms = <0>;
+        bindings = <&kp APOS &kp SPACE>;
+        )
+        ZMK_MACRO(quotations,
+        wait-ms = <0>;
+        tap-ms = <0>;
+        bindings = <&kp LS(APOS) &kp SPACE>;
+        )
     };
 
 	behaviors {
@@ -182,15 +116,15 @@
 				// |      |     |     | EUR |    |    |     |     |     |     |     |  Ä   |  Ü  |   Ö
 				// |       |     |     |     |     |     |     |     |     |     |     |  '  |    INSERT
 				// |           |     |     |     |     |     |     |     |     |     |  ß  |    UP   | LAY2
-				// |       |       |       |                                |      | LEFT |  DOWN    |  RIGHT
+				// |BT_CLR| BT_PRV| BT_NXT|                                |      | LEFT |  DOWN    |  RIGHT
 				// ------------------------------------------------------------------------------------------
 			bindings = <
 
 				&kp GRAVE &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12              &kp PSCRN
 				&none  &none  &none  &eurosign  &none  &none  &none  &none  &none &none  &none  &ae_shift &ue_shift &oe_shift
 				&none   &none  &none  &none     &none  &none  &none  &none  &none  &none  &none &quot_apos           &kp INS
-				&none    &none  &none  &none     &none  &none  &none  &none  &none  &none  &eszett           &kp UP     &mo 2
-				&none   &none    &none               &none                                    &none  &kp LEFT  &kp DOWN  &kp RIGHT
+				&trans    &none  &none  &none     &none  &none  &none  &none  &none  &none  &eszett           &kp UP     &mo 2
+				&bt BT_CLR   &bt BT_PRV &bt BT_NXT            &none                                &none  &kp LEFT  &kp DOWN  &kp RIGHT
 			
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
