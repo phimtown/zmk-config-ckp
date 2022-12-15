@@ -10,6 +10,7 @@
             label = "ZM_ae_lowercase";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+	    wait-ms = <0>;
             bindings
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp APOS>
@@ -21,6 +22,7 @@
             label = "ZM_ae_uppercase";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+	    wait-ms = <0>;
             bindings
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp APOS>
@@ -32,6 +34,7 @@
             label = "ZM_oe_lowercase";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+	    wait-ms = <0>;
             bindings
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp APOS>
@@ -43,6 +46,7 @@
             label = "ZM_oe_uppercase";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+	    wait-ms = <0>;
             bindings
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp APOS>
@@ -54,6 +58,7 @@
             label = "ZM_oe_lowercase";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+	    wait-ms = <0>;
             bindings
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp APOS>
@@ -65,6 +70,7 @@
             label = "ZM_oe_uppercase";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+	    wait-ms = <0>;
             bindings
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp APOS>
@@ -76,6 +82,7 @@
             label = "ZM_eszett";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+	    wait-ms = <0>;
             bindings
                 = <&macro_press &kp RALT>
 				, <&macro_tap &kp S>
@@ -86,6 +93,7 @@
             label = "ZM_eurosign";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+	    wait-ms = <0>;
             bindings
                 = <&macro_press &kp RALT>
 				, <&macro_tap &kp NUMBER_5>
@@ -96,6 +104,7 @@
             label = "ZM_apostrophe";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+	    wait-ms = <0>;
             bindings
                 = <&macro_tap &kp APOS>
 				, <&macro_tap &kp SPACE>
@@ -105,6 +114,7 @@
             label = "ZM_quotations";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+	    wait-ms = <0>;
             bindings
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp APOS>
