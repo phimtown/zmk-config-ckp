@@ -47,12 +47,12 @@
         bindings = <&kp RA(NUMBER_5)>;
         )
         ZMK_MACRO(apostrophe,
-        wait-ms = <0>;
+        wait-ms = <50>;
         tap-ms = <0>;
         bindings = <&kp APOS &kp SPACE>;
         )
         ZMK_MACRO(quotations,
-        wait-ms = <0>;
+        wait-ms = <50>;
         tap-ms = <0>;
         bindings = <&kp LS(APOS) &kp SPACE>;
         )
@@ -84,7 +84,7 @@
             compatible = "zmk,behavior-mod-morph";
             label = "QUOT_APOS";
             #binding-cells = <0>;
-            bindings = <&oe_lowercase>, <&quotations>;
+            bindings = <&apostrophe>, <&quotations>;
             mods = <(MOD_LSFT)>;
         };
     };
