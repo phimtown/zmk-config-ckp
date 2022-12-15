@@ -122,14 +122,14 @@
             bindings = <&ae_lowercase>, <&ae_uppercase>;
             mods = <(MOD_LSFT)>;
         };
-		ue_shift: ae_shift {
+		ue_shift: ue_shift {
             compatible = "zmk,behavior-mod-morph";
             label = "UE_SHIFT";
             #binding-cells = <0>;
             bindings = <&ue_lowercase>, <&ue_uppercase>;
             mods = <(MOD_LSFT)>;
         };
-		oe_shift: ae_shift {
+		oe_shift: oe_shift {
             compatible = "zmk,behavior-mod-morph";
             label = "OE_SHIFT";
             #binding-cells = <0>;
