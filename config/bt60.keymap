@@ -10,19 +10,19 @@
             label = "ZM_ae_lowercase";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-	    wait-ms = <0>;
+	    wait-ms = <20>;
             bindings
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp APOS>
                 , <&macro_release &kp LSHFT>
-				, <&macro_tap &kp A>
+		, <&macro_tap &kp A>
                 ;
         };
 		ae_uppercase: ae_uppercase {
             label = "ZM_ae_uppercase";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-	    wait-ms = <0>;
+	    wait-ms = <20>;
             bindings
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp APOS>
@@ -34,7 +34,7 @@
             label = "ZM_oe_lowercase";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-	    wait-ms = <0>;
+	    wait-ms = <20>;
             bindings
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp APOS>
@@ -46,7 +46,7 @@
             label = "ZM_oe_uppercase";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-	    wait-ms = <0>;
+	    wait-ms = <20>;
             bindings
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp APOS>
@@ -58,7 +58,7 @@
             label = "ZM_oe_lowercase";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-	    wait-ms = <0>;
+	    wait-ms = <20>;
             bindings
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp APOS>
@@ -70,7 +70,7 @@
             label = "ZM_oe_uppercase";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-	    wait-ms = <0>;
+	    wait-ms = <20>;
             bindings
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp APOS>
@@ -82,7 +82,7 @@
             label = "ZM_eszett";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-	    wait-ms = <0>;
+	    wait-ms = <20>;
             bindings
                 = <&macro_press &kp RALT>
 				, <&macro_tap &kp S>
@@ -93,7 +93,7 @@
             label = "ZM_eurosign";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-	    wait-ms = <0>;
+	    wait-ms = <20>;
             bindings
                 = <&macro_press &kp RALT>
 				, <&macro_tap &kp NUMBER_5>
@@ -104,7 +104,7 @@
             label = "ZM_apostrophe";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-	    wait-ms = <0>;
+	    wait-ms = <20>;
             bindings
                 = <&macro_tap &kp APOS>
 				, <&macro_tap &kp SPACE>
@@ -114,7 +114,7 @@
             label = "ZM_quotations";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-	    wait-ms = <0>;
+	    wait-ms = <20>;
             bindings
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp APOS>
@@ -187,10 +187,10 @@
 			bindings = <
 
 				&kp GRAVE &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12              &kp PSCRN
-				&trans  &trans  &trans  &eurosign  &trans  &trans  &trans  &trans  &trans &trans  &trans  &ae_shift &ue_shift &oe_shift
-				&trans   &trans  &trans  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans &quot_apos           &kp INS
-				&trans    &trans  &trans  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &eszett           &kp UP     &mo 2
-				&trans   &trans    &trans               &trans                                    &trans  &kp LEFT  &kp DOWN  &kp RIGHT
+				&none  &none  &none  &eurosign  &none  &none  &none  &none  &none &none  &none  &ae_shift &ue_shift &oe_shift
+				&none   &none  &none  &none     &none  &none  &none  &none  &none  &none  &none &quot_apos           &kp INS
+				&none    &none  &none  &none     &none  &none  &none  &none  &none  &none  &eszett           &kp UP     &mo 2
+				&none   &none    &none               &none                                    &none  &kp LEFT  &kp DOWN  &kp RIGHT
 			
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -215,11 +215,11 @@
 				// -------------------------
 
 			bindings = <
-				&trans &kp KP_NLCK &kp KP_MINUS &kp KP_PLUS &kp KP_ASTERISK &kp KP_DIVIDE &trans &trans &trans &trans &trans &trans &trans   &trans
-				&trans  &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_COMMA &trans &trans &trans &trans &trans &trans &trans &trans  &trans
-				&trans   &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_EQUAL &trans &trans &trans &trans &trans &trans &trans   &bootloader
-				&trans    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_DOT &trans &trans &trans &trans &trans &trans     &trans   &trans
-				&trans &trans &kp KP_N0              &trans                             &trans  &trans  &trans  &trans
+				&none &kp KP_NLCK &kp KP_MINUS &kp KP_PLUS &kp KP_ASTERISK &kp KP_DIVIDE &none &none &none &none &none &none &none   &none
+				&none  &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_COMMA &none &none &none &none &none &none &none &none  &none
+				&none   &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_EQUAL &none &none &none &none &none &none &none   &bootloader
+				&none    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_DOT &none &none &none &none &none &none     &none   &none
+				&none &none &kp KP_N0              &none                             &none  &none  &none  &none
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
