@@ -5,34 +5,211 @@
 #include <dt-bindings/zmk/backlight.h>
 
 / {
+	macros {
+        ae_lowercase: ae_lowercase {
+            label = "ZM_ae_lowercase";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp APOS>
+                , <&macro_release &kp LSHFT>
+				, <&macro_tap &kp A>
+                ;
+        };
+		ae_uppercase: ae_uppercase {
+            label = "ZM_ae_uppercase";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp APOS>
+				, <&macro_tap &kp A>
+				, <&macro_release &kp LSHFT>
+                ;
+        };
+		oe_lowercase: oe_lowercase {
+            label = "ZM_oe_lowercase";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp APOS>
+                , <&macro_release &kp LSHFT>
+				, <&macro_tap &kp O>
+                ;
+        };
+		oe_uppercase: oe_uppercase {
+            label = "ZM_oe_uppercase";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp APOS>
+				, <&macro_tap &kp O>
+				, <&macro_release &kp LSHFT>
+                ;
+        };
+		ue_lowercase: oe_lowercase {
+            label = "ZM_oe_lowercase";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp APOS>
+                , <&macro_release &kp LSHFT>
+				, <&macro_tap &kp U>
+                ;
+        };
+		ue_uppercase: oe_uppercase {
+            label = "ZM_oe_uppercase";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp APOS>
+				, <&macro_tap &kp U>
+				, <&macro_release &kp LSHFT>
+                ;
+        };
+		eszett: eszett {
+            label = "ZM_eszett";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp RALT>
+				, <&macro_tap &kp S>
+				, <&macro_release &kp RALT>
+                ;
+        };
+		eurosign: eurosign {
+            label = "ZM_eurosign";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp RALT>
+				, <&macro_tap &kp NUMBER_5>
+				, <&macro_release &kp RALT>
+                ;
+        };
+		apostrophe: apostrophe {
+            label = "ZM_apostrophe";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp APOS>
+				, <&macro_tap &kp SPACE>
+                ;
+        };
+		quotations: quotations {
+            label = "ZM_quotations";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp APOS>
+				, <&macro_release &kp LSHFT>
+				, <&macro_tap &kp SPACE>
+                ;
+        };
+    };
+
+	behaviors {
+        ae_shift: ae_shift {
+            compatible = "zmk,behavior-mod-morph";
+            label = "AE_SHIFT";
+            #binding-cells = <0>;
+            bindings = <&ae_lowercase>, <&ae_uppercase>;
+            mods = <(MOD_LSFT)>;
+        };
+		ue_shift: ae_shift {
+            compatible = "zmk,behavior-mod-morph";
+            label = "UE_SHIFT";
+            #binding-cells = <0>;
+            bindings = <&ue_lowercase>, <&ue_uppercase>;
+            mods = <(MOD_LSFT)>;
+        };
+		oe_shift: ae_shift {
+            compatible = "zmk,behavior-mod-morph";
+            label = "OE_SHIFT";
+            #binding-cells = <0>;
+            bindings = <&oe_lowercase>, <&oe_uppercase>;
+            mods = <(MOD_LSFT)>;
+        };
+		quot_apos: quot_apos {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QUOT_APOS";
+            #binding-cells = <0>;
+            bindings = <&oe_lowercase>, <&quotations>;
+            mods = <(MOD_LSFT)>;
+        };
+    };
+
 	keymap {
 		compatible = "zmk,keymap";
 
 		default_layer {
 				// ------------------------------------------------------------------------------------------
-				// |  `  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  -  |  =  |   BKSP
+				// | ESC  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  -  |  =  |   BKSP
 				// | TAB  |  Q  |  W  |  E  |  R  |  T  |  Y  |  U  |  I  |  O  |  P  |  [  |  ]  |   |
 				// | CAPS  |  A  |  S  |  D  |  F  |  G  |  H  |  J  |  K  |  L  |  ;  |  '  |     ENTER
-				// |  SHIFT    |  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  | /   |      SHIFT
-				// |  CTL  |  WIN  |  ALT  |            SPACE               | ALT | 1    |  MENU    |  CTRL
+				// |  SHIFT    |  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  | /   |   SHIFT | DEL
+				// |  CTL  |  WIN  |  ALT  |            SPACE               | LAY1 | RALT |  MENU    |  CTRL
 				// ------------------------------------------------------------------------------------------
 			bindings = <
 
 				&kp ESC &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp  N8   &kp  N9 &kp  N0  &kp MINUS &kp EQUAL &kp BSPC
-				&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp  I    &kp  O  &kp  P   &kp LBKT &kp RBKT   &kp BSLH
-				&kp CAPS  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp  K    &kp  L  &kp SEMI &kp SQT            &kp RET
-				&kp LSHFT  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH                   &kp RSHFT
-				&kp LCTRL &kp LGUI &kp LALT            &kp SPACE                          &kp RALT  &mo 1 &kp C_MENU    &kp RCTRL
+				&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp  I    &kp  O  &kp  P   &kp LBKT &kp RBKT  &kp BSLH
+				&kp CAPS  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp  K    &kp  L  &kp SEMI &quot_apos         &kp RET
+				&kp LSHFT  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &k COMMA &kp DOT &kp FSLH          &kp RSHFT &kp DEL
+				&kp LCTRL &kp LGUI &kp LALT            &kp SPACE                            &mo 1  &kp RALT &kp C_MENU &kp RCTRL
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
-		raise {
+		layone {
+				// ------------------------------------------------------------------------------------------
+				// |  `  |  F1 |  F2 |  F3 |  F4 |  F5 |  F6 |  F7 |  F8 |  F9 | F10 | F11 | F12 |   BKSP
+				// |      |     |     | EUR |    |    |     |     |     |     |     |  Ä   |  Ü  |   Ö
+				// |       |     |     |     |     |     |     |     |     |     |     |  '  |    INSERT
+				// |           |     |     |     |     |     |     |     |     |     |  ß  |    UP   | LAY2
+				// |       |       |       |                                |      | LEFT |  DOWN    |  RIGHT
+				// ------------------------------------------------------------------------------------------
 			bindings = <
-				&bt BT_CLR &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12 &kp DEL
-				&trans &trans &kp UP &trans &trans &trans &trans &trans &kp INS &trans &kp PSCRN &kp SLCK &kp PAUSE_BREAK &rgb_ug RGB_TOG
-				&kp CAPS    &kp LEFT &kp DOWN &kp RIGHT &trans &trans &trans &trans &trans &trans &kp HOME  &kp PG_UP   &bootloader
-				&kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE &bl BL_INC &bl BL_DEC &trans &trans &trans &kp END &kp PG_DN  &bl BL_TOG
-				&bt BT_PRV &bt BT_NXT  &trans              &trans                            &trans   &trans   &reset &bt BT_CLR
+
+				&kp GRAVE &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12              &kp PSCRN
+				&trans  &trans  &trans  &eurosign  &trans  &trans  &trans  &trans  &trans &trans  &trans  &ae_shift &ue_shift &oe_shift
+				&trans   &trans  &trans  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans &quot_apos           &kp INS
+				&trans    &trans  &trans  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &eszett           &kp UP     &mo 2
+				&trans   &trans    &trans               &trans                                    &trans  &kp LEFT  &kp DOWN  &kp RIGHT
+			
+			>;
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+		};
+		laytwo {
+				// ------------------------------------------------------------------------------------------
+				// |     | NLK | PMN | PLS | AST | SLS |     |     |     |     |     |     |     |       
+				// |      |  P7 | P8  |  P9 |CMM |    |     |     |     |     |     |      |     |    
+				// |       |  P4 |  P5 | P6  | EQL |     |     |     |     |     |     |     |  bootloader  
+				// |           | P1  | P2  |  P3 | DOT |     |     |     |     |     |     |         |     
+				// |       |       |  P0   |                                |      |      |          |       
+				// ------------------------------------------------------------------------------------------
+				// NLK      - NUMLOCK
+				// PMN      - Numpad minus
+				// PLS      - Numpad plus
+				// AST      - Numpad *
+				// SLS      - Numpad /
+				// DOT      - Numpad .
+				// EQL      - Numpad =
+				// CMM      - Numpad ,
+				// P0-P9    - Numpad 0-9
+				// -------------------------
+
+			bindings = <
+				&trans &kp KP_NLCK &kp KP_MINUS &kp KP_PLUS &kp KP_ASTERISK &kp KP_DIVIDE &trans &trans &trans &trans &trans &trans &trans   &trans
+				&trans  &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_COMMA &trans &trans &trans &trans &trans &trans &trans &trans  &trans
+				&trans   &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_EQUAL &trans &trans &trans &trans &trans &trans &trans   &bootloader
+				&trans    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_DOT &trans &trans &trans &trans &trans &trans     &trans   &trans
+				&trans &trans &kp KP_N0              &trans                             &trans  &trans  &trans  &trans
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
